@@ -2,11 +2,14 @@ import { cache } from '@emotion/css';
 import { CacheProvider } from '@emotion/react';
 import type { AppProps } from 'next/app';
 import GlobalStyles from '@/styles/GlobalStyles';
+import Layout from '@/components/common/Layout';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <CacheProvider value={cache}>
     <GlobalStyles />
-    <Component {...pageProps} />
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   </CacheProvider>
 );
 
